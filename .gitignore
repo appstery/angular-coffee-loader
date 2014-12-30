@@ -1,0 +1,13 @@
+logs
+*.log
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.grunt
+node_modules
+bower_components/
+*.log
+dist/
+_SpecRunner.html
