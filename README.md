@@ -1,4 +1,4 @@
-AngularCoffeeLoader [![Build Status](https://travis-ci.org/appstery/angular-coffee-loader.png?branch=master)](https://travis-ci.org/appstery/angular-coffee-loader)
+AngularCoffeeLoader [![Build Status](https://travis-ci.org/Appstery/angular-coffee-loader.svg)](https://travis-ci.org/Appstery/angular-coffee-loader)
 ==========
 
 
