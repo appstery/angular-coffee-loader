@@ -5,7 +5,7 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   describe("Different type of class registration", function() {
-    return it("class extends CoffeeAngular.Controller", function() {
+    return it("class extends AngularCoffeeLoader.Controller", function() {
       var Sample, app, l;
       Sample = {};
       Sample.SimpleController = (function(_super) {
@@ -19,19 +19,18 @@
         SimpleController.inject('$scope');
 
         SimpleController.prototype.register = function(app) {
-          SimpleController.__super__.register.apply(this, arguments);
-          return console.log('test register');
+          console.log('test register');
+          return SimpleController.__super__.register.apply(this, arguments);
         };
 
         return SimpleController;
 
-      })(CoffeeAngular.Controller);
+      })(AngularCoffeeLoader.Controller);
       app = angular.module('sample', []);
-      l = new CoffeeAngular();
+      l = new AngularCoffeeLoader();
       l.bootstrap(app, Sample);
       angular.bootstrap(document, ['sample']);
-      console.log(l, app);
-      return expect(true).toBe(true);
+      return expect(app._invokeQueue[0].length).toBe(3);
     });
   });
 

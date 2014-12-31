@@ -10,4 +10,5 @@ node_modules
 bower_components/
 *.log
 dist/
+.idea
 _SpecRunner.html

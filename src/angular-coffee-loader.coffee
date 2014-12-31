@@ -1,8 +1,8 @@
 'use strict'
 
-class window.CoffeeAngular
+class window.AngularCoffeeLoader
 
-  VERSION = '0.0.0'
+  VERSION = '0.0.1'
 
   traverse: (o, func) =>
     for i of o
@@ -15,12 +15,12 @@ class window.CoffeeAngular
     @traverse(@namespace, @loadClass)
 
   loadClass: (klass)  =>
-    if klass.prototype instanceof CoffeeAngular.Abstract
+    if klass.prototype instanceof AngularCoffeeLoader.Abstract
       klass.register(@app)
     
 
 
-class CoffeeAngular.Abstract
+class AngularCoffeeLoader.Abstract
 
   @inject: (args...) ->
     @$inject = args
@@ -32,31 +32,31 @@ class CoffeeAngular.Abstract
   register: () =>
 
 
-class CoffeeAngular.Controller extends CoffeeAngular.Abstract
+class AngularCoffeeLoader.Controller extends AngularCoffeeLoader.Abstract
 
   @register: (app) ->
     app.controller @name, @
 
 
-class CoffeeAngular.Directive extends CoffeeAngular.Abstract
+class AngularCoffeeLoader.Directive extends AngularCoffeeLoader.Abstract
 
   @register: (app) ->
     app.directive @name, @
 
 
-class CoffeeAngular.Filter extends CoffeeAngular.Abstract
+class AngularCoffeeLoader.Filter extends AngularCoffeeLoader.Abstract
 
   @register: (app) ->
     app.filter @name, @
 
 
-class CoffeeAngular.Service extends CoffeeAngular.Abstract
+class AngularCoffeeLoader.Service extends AngularCoffeeLoader.Abstract
 
   @register: (app) ->
     app.service @name, @
 
 
-class CoffeeAngular.Decorator extends CoffeeAngular.Abstract
+class AngularCoffeeLoader.Decorator extends AngularCoffeeLoader.Abstract
 
   @register: (app) ->
     app.config ($provide) ->

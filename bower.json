@@ -1,0 +1,24 @@
+{
+  "name": "angular-coffee-loader",
+  "version": "0.0.1",
+  "homepage": "https://github.com/appstery/angular-coffee-loader",
+  "main": "./build/angular-coffee-loader.min.js",
+  "authors": [
+    "Marcin Wierzbicki <marcin.wierzbicki@appstery.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    ".*"
+  ]
+}

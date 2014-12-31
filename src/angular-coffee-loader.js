@@ -5,18 +5,18 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  window.CoffeeAngular = (function() {
+  window.AngularCoffeeLoader = (function() {
     var VERSION;
 
-    function CoffeeAngular() {
+    function AngularCoffeeLoader() {
       this.loadClass = __bind(this.loadClass, this);
       this.bootstrap = __bind(this.bootstrap, this);
       this.traverse = __bind(this.traverse, this);
     }
 
-    VERSION = '0.0.0';
+    VERSION = '0.0.1';
 
-    CoffeeAngular.prototype.traverse = function(o, func) {
+    AngularCoffeeLoader.prototype.traverse = function(o, func) {
       var i, _results;
       _results = [];
       for (i in o) {
@@ -29,23 +29,23 @@
       return _results;
     };
 
-    CoffeeAngular.prototype.bootstrap = function(app, namespace) {
+    AngularCoffeeLoader.prototype.bootstrap = function(app, namespace) {
       this.app = app;
       this.namespace = namespace;
       return this.traverse(this.namespace, this.loadClass);
     };
 
-    CoffeeAngular.prototype.loadClass = function(klass) {
-      if (klass.prototype instanceof CoffeeAngular.Abstract) {
+    AngularCoffeeLoader.prototype.loadClass = function(klass) {
+      if (klass.prototype instanceof AngularCoffeeLoader.Abstract) {
         return klass.register(this.app);
       }
     };
 
-    return CoffeeAngular;
+    return AngularCoffeeLoader;
 
   })();
 
-  CoffeeAngular.Abstract = (function() {
+  AngularCoffeeLoader.Abstract = (function() {
     Abstract.inject = function() {
       var args;
       args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
@@ -69,7 +69,7 @@
 
   })();
 
-  CoffeeAngular.Controller = (function(_super) {
+  AngularCoffeeLoader.Controller = (function(_super) {
     __extends(Controller, _super);
 
     function Controller() {
@@ -82,9 +82,9 @@
 
     return Controller;
 
-  })(CoffeeAngular.Abstract);
+  })(AngularCoffeeLoader.Abstract);
 
-  CoffeeAngular.Directive = (function(_super) {
+  AngularCoffeeLoader.Directive = (function(_super) {
     __extends(Directive, _super);
 
     function Directive() {
@@ -97,9 +97,9 @@
 
     return Directive;
 
-  })(CoffeeAngular.Abstract);
+  })(AngularCoffeeLoader.Abstract);
 
-  CoffeeAngular.Filter = (function(_super) {
+  AngularCoffeeLoader.Filter = (function(_super) {
     __extends(Filter, _super);
 
     function Filter() {
@@ -112,9 +112,9 @@
 
     return Filter;
 
-  })(CoffeeAngular.Abstract);
+  })(AngularCoffeeLoader.Abstract);
 
-  CoffeeAngular.Service = (function(_super) {
+  AngularCoffeeLoader.Service = (function(_super) {
     __extends(Service, _super);
 
     function Service() {
@@ -127,9 +127,9 @@
 
     return Service;
 
-  })(CoffeeAngular.Abstract);
+  })(AngularCoffeeLoader.Abstract);
 
-  CoffeeAngular.Decorator = (function(_super) {
+  AngularCoffeeLoader.Decorator = (function(_super) {
     __extends(Decorator, _super);
 
     function Decorator() {
@@ -144,6 +144,6 @@
 
     return Decorator;
 
-  })(CoffeeAngular.Abstract);
+  })(AngularCoffeeLoader.Abstract);
 
 }).call(this);

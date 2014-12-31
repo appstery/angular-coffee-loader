@@ -2,28 +2,27 @@
 
 describe "Different type of class registration", ->
 
-  it "class extends CoffeeAngular.Controller", ->
+  it "class extends AngularCoffeeLoader.Controller", ->
 
     Sample = {}
 
-    class Sample.SimpleController extends CoffeeAngular.Controller
+    class Sample.SimpleController extends AngularCoffeeLoader.Controller
 
       @inject '$scope'
 
       register: (app) =>
-        super
         console.log 'test register'
+        super
+
 
 
     app = angular.module 'sample', []
 
-    l = new CoffeeAngular()
+    l = new AngularCoffeeLoader()
     l.bootstrap(app, Sample)
 
     angular.bootstrap document, ['sample']
 
-    console.log l, app
-    
 
-    expect(true).toBe true
+    expect(app._invokeQueue[0].length).toBe 3
 
